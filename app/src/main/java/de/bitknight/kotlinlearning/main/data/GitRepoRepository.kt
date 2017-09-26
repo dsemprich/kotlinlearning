@@ -1,4 +1,6 @@
-package de.bitknight.kotlinlearning
+package de.bitknight.kotlinlearning.main.data
+
+import de.bitknight.kotlinlearning.util.NetManager
 
 /**
  * Created by dsemprich on 25.09.17.

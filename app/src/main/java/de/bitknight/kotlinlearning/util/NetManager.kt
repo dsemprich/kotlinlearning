@@ -1,4 +1,4 @@
-package de.bitknight.kotlinlearning
+package de.bitknight.kotlinlearning.util
 
 import android.content.Context
 import android.net.ConnectivityManager

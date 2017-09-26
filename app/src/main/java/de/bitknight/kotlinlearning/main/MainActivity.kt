@@ -1,4 +1,4 @@
-package de.bitknight.kotlinlearning
+package de.bitknight.kotlinlearning.main
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -6,14 +6,18 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import de.bitknight.kotlinlearning.R
 import de.bitknight.kotlinlearning.databinding.ActivityMainBinding
+import de.bitknight.kotlinlearning.main.adapter.RepositoryRecyclerViewAdapter
+import de.bitknight.kotlinlearning.main.data.Repository
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), RepositoryRecyclerViewAdapter.OnItemClickListener  {
+class MainActivity : AppCompatActivity(), RepositoryRecyclerViewAdapter.OnItemClickListener {
 
     private lateinit var binding: ActivityMainBinding
     private val repositoryRecyclerViewAdapter = RepositoryRecyclerViewAdapter(arrayListOf(), this)
 
-    var repository = Repository("Medium Android de.bitknight.kotlinlearning.Repository Article",
+    var repository = Repository("Medium Android de.bitknight.kotlinlearning.main.data.Repository Article",
             "Fleka", 1000, true)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,10 +28,13 @@ class MainActivity : AppCompatActivity(), RepositoryRecyclerViewAdapter.OnItemCl
         binding.viewModel = viewModel
         binding.executePendingBindings()
 
-        binding.repositoryRv.layoutManager = LinearLayoutManager(this)
-        binding.repositoryRv.adapter = repositoryRecyclerViewAdapter
+        repository_rv.layoutManager = LinearLayoutManager(this)
+        repository_rv.adapter = repositoryRecyclerViewAdapter
         viewModel.repositories.observe(this,
-                Observer<ArrayList<Repository>> { it?.let{ repositoryRecyclerViewAdapter.replaceData(it)} })
+                Observer<ArrayList<Repository>> { it?.let{
+                    repository_rv.scheduleLayoutAnimation()
+                    repositoryRecyclerViewAdapter.replaceData(it)
+                } })
 
     }
 

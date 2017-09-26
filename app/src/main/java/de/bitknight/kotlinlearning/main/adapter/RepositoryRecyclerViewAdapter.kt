@@ -1,9 +1,10 @@
-package de.bitknight.kotlinlearning
+package de.bitknight.kotlinlearning.main.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import de.bitknight.kotlinlearning.databinding.RvItemRepositoryBinding
+import de.bitknight.kotlinlearning.main.data.Repository
 
 /**
  * Created by dsemprich on 26.09.17.

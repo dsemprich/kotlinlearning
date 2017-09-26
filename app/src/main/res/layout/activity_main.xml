@@ -9,13 +9,13 @@
 
         <variable
             name="viewModel"
-            type="de.bitknight.kotlinlearning.MainViewModel" />
+            type="de.bitknight.kotlinlearning.main.MainViewModel" />
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".main.MainActivity">
 
         <ProgressBar
             android:id="@+id/loading"
@@ -34,6 +34,7 @@
             android:layout_height="0dp"
             android:indeterminate="true"
             android:visibility="@{viewModel.isLoading ? View.GONE : View.VISIBLE}"
+            android:layoutAnimation="@anim/layout_animation_fall_down"
             app:layout_constraintBottom_toTopOf="@+id/refresh_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,7 +1,8 @@
-package de.bitknight.kotlinlearning
+package de.bitknight.kotlinlearning.main.data
 
 import android.databinding.BaseObservable
 import android.databinding.Bindable
+import de.bitknight.kotlinlearning.BR
 
 /**
  * Created by dsemprich on 25.09.17.

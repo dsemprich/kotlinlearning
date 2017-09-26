@@ -9,7 +9,7 @@
 
         <variable
             name="repository"
-            type="de.bitknight.kotlinlearning.Repository" />
+            type="de.bitknight.kotlinlearning.main.data.Repository" />
     </data>
 
     <android.support.v7.widget.CardView
